@@ -1,5 +1,4 @@
 import { Redis } from "@upstash/redis";
-import { NextResponse } from "next/server";
 
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL!,
@@ -9,9 +8,9 @@ const redis = new Redis({
 export async function GET() {
   try {
     const views = await redis.incr("pageviews");
-    return NextResponse.json(views);
+    return Response.json(views);
   } catch (error) {
-    return NextResponse.json(
+    return Response.json(
       { error: "Failed to fetch view count" },
       { status: 500 }
     );
