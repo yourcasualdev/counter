@@ -11,7 +11,9 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Using absolute URL since relative URL wasn't working
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/views`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/views`, {
+    method: "POST",
+  });
   const data = await res.json();
 
   return { props: { data } };
