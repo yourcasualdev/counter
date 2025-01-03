@@ -11,7 +11,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Fetch data from our API route
-  const res = await fetch(`${process.env.VERCEL_URL}/api/views`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/views`);
   const data = await res.json();
 
   // Pass data to the page via props
