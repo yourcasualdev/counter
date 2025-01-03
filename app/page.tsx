@@ -1,10 +1,5 @@
-import { headers } from "next/headers";
-
 async function getViewCount() {
-  const headersList = headers();
-  const domain = headersList.get("host");
-
-  const res = await fetch(`http://${domain}/api/views`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/views`, {
     cache: "no-store",
   });
 
